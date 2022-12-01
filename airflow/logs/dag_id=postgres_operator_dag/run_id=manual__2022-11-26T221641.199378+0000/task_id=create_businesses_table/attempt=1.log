@@ -1,0 +1,63 @@
+[2022-11-26T22:16:42.464+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: postgres_operator_dag.create_businesses_table manual__2022-11-26T22:16:41.199378+00:00 [queued]>
+[2022-11-26T22:16:42.477+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: postgres_operator_dag.create_businesses_table manual__2022-11-26T22:16:41.199378+00:00 [queued]>
+[2022-11-26T22:16:42.478+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-26T22:16:42.478+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-26T22:16:42.478+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-26T22:16:42.493+0000] {taskinstance.py:1383} INFO - Executing <Task(PostgresOperator): create_businesses_table> on 2022-11-26 22:16:41.199378+00:00
+[2022-11-26T22:16:42.499+0000] {standard_task_runner.py:54} INFO - Started process 12046 to run task
+[2022-11-26T22:16:42.501+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'postgres_operator_dag', 'create_businesses_table', 'manual__2022-11-26T22:16:41.199378+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/create_db.py', '--cfg-path', '/tmp/tmptqn9hmxl']
+[2022-11-26T22:16:42.503+0000] {standard_task_runner.py:83} INFO - Job 41: Subtask create_businesses_table
+[2022-11-26T22:16:42.504+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/***/dags/create_db.py
+[2022-11-26T22:16:42.902+0000] {task_command.py:384} INFO - Running <TaskInstance: postgres_operator_dag.create_businesses_table manual__2022-11-26T22:16:41.199378+00:00 [running]> on host cb45f2305923
+[2022-11-26T22:16:42.955+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=postgres_operator_dag
+AIRFLOW_CTX_TASK_ID=create_businesses_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-11-26T22:16:41.199378+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-11-26T22:16:41.199378+00:00
+[2022-11-26T22:16:42.963+0000] {base.py:71} INFO - Using connection ID '***_db' for task execution.
+[2022-11-26T22:16:42.968+0000] {sql.py:315} INFO - Running statement: -- create businesses table
+CREATE TABLE IF NOT EXISTS businesses (
+    business_id VARCHAR(50) PRIMARY KEY,
+        name VARCHAR(50),
+        url VARCHAR(250),
+        address VARCHAR(50),
+        city VARCHAR(50),
+        state VARCHAR(50),
+        postal_code INT,
+        review_count INT,
+        rating FLOAT,
+        price VARCHAR(50));
+
+CREATE TABLE IF NOT EXISTS categories(
+        category_id SERIAL PRIMARY KEY,
+        alias VARCHAR(50),
+        title VARCHAR(50)
+    );
+
+CREATE TABLE IF NOT EXISTS business_categories(
+        id SERIAL PRIMARY KEY,
+        business_id VARCHAR(50),
+        category_id INT
+    );
+
+CREATE TABLE IF NOT EXISTS is_mobile_friendly(
+        business_id VARCHAR PRIMARY KEY,
+        mobile_friendliness BOOLEAN,
+        screenshot VARCHAR,
+        last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+CREATE TABLE IF NOT EXISTS mobile_issues(
+        id SERIAL PRIMARY KEY,
+        business_id VARCHAR(50),
+        mobileFriendlyIssues VARCHAR,
+        last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+, parameters: None
+[2022-11-26T22:16:43.021+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=***_operator_dag, task_id=create_businesses_table, execution_date=20221126T221641, start_date=20221126T221642, end_date=20221126T221643
+[2022-11-26T22:16:43.075+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2022-11-26T22:16:43.093+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
