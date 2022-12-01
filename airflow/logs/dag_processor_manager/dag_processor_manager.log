@@ -1,0 +1,21 @@
+[2022-11-29T20:39:24.014+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2022-11-29T20:39:24.019+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2022-11-29T20:39:24.020+0000] {manager.py:486} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2022-11-29T20:39:24.022+0000] {manager.py:724} INFO - Searching for files in /opt/airflow/dags
+[2022-11-29T20:39:24.789+0000] {manager.py:727} INFO - There are 1 files in /opt/airflow/dags
+[2022-11-29T20:39:24.937+0000] {manager.py:846} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                         PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/create_db.py    175  0.04s             0           0
+================================================================================
+[2022-11-29T20:39:55.458+0000] {manager.py:846} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                         PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/create_db.py    199  0.01s             0           1  0.43s           2022-11-29T20:39:25
+================================================================================
